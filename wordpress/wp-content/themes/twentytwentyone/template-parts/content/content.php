@@ -36,7 +36,6 @@
 				'pagelink' => esc_html__( 'Page %', 'twentytwentyone' ),
 			)
 		);
-
 		?>
 	</div><!-- .entry-content -->
 

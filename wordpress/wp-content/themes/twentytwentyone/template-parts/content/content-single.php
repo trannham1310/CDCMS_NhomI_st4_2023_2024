@@ -18,7 +18,23 @@
 		<?php twenty_twenty_one_post_thumbnail(); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<style>		
+		@media (min-width: 992px) {
+			.row {
+				margin-left: -15px !important;
+				margin-right: -15px !important;
+			}
+		}
+
+		@media (min-width: 480px) {
+			.row {margin: 0}
+		}
+	</style>
+
+	<div class="entry-content row">
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-6">
 		<?php
 		the_content();
 
@@ -31,9 +47,12 @@
 			)
 		);
 		?>
+		</div>
+		<div class="col-md-3">
+		</div>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer default-max-width">
+	<footer class="entry-footer default-max-width ksjdfjsdnf">
 		<?php twenty_twenty_one_entry_meta_footer(); ?>
 	</footer><!-- .entry-footer -->
 
