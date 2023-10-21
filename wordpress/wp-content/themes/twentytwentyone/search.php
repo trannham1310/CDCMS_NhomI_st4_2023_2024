@@ -24,7 +24,9 @@ if ( have_posts() ) {
 			?>
 		</h1>
 	</header><!-- .page-header -->
-
+	<div class="search default-max-width">
+			
+		</div>
 	<div class="search-result-count default-max-width">
 		<?php
 		printf(
