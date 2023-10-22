@@ -368,17 +368,15 @@ get_footer();
 }
 
 .headlines {
-
+    background: #56bdbf;
     overflow: hidden;
     padding: 20px 30px;
 }
 
 .headlines ul {
-
     list-style: none;
     margin: 0;
     padding: 0;
-
 }
 
 .headlines ul>li {
@@ -392,7 +390,6 @@ get_footer();
     display: table-cell;
     vertical-align: middle;
     width: 85%;
-
 }
 
 .headlinesdate .headlinesdm,
@@ -429,7 +426,7 @@ get_footer();
     display: block;
     padding: 10px;
     text-align: center;
-
+    background: #62c6c8;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -437,7 +434,6 @@ get_footer();
 /*-----------------------------------List item panel -----------------------------------*/
 .list-group-item {
     border: none;
-
     border-bottom: 1px #d9d9d9 solid;
     margin-bottom: 0;
     padding-left: 0;
@@ -447,15 +443,11 @@ get_footer();
 
 .list-group-item:last-child {
     border: none;
-
-
 }
 
 .list-group {
-
     list-style: disc;
     margin-bottom: 0;
-
 }
 
 .list-group-item:before {
@@ -465,7 +457,6 @@ get_footer();
     font-size: 2em;
     padding-right: 0.5em;
     position: relative;
-
     top: 0.15em;
 }
 
@@ -561,7 +552,6 @@ get_footer();
 
 .list_new_view .top_news_block_desc .topnewstime {
     padding-left: 15px;
-
 }
 
 .shortdesc {
@@ -610,7 +600,9 @@ get_footer();
     clear: both;
 }
 
-.list_news {}
+.list_news {
+    margin-top: 0px;
+}
 
 .list_new_view {
     margin-bottom: 15px;
@@ -622,12 +614,12 @@ get_footer();
 
 /*--------------------------------------------------Students-----------------------------------------*/
 .list_news .headlines {
-    background: #62c6c8;
+    background: #56bdbf;
     color: #fff;
 }
 
 .list_news .headlines a {
-    color: #000;
+    color: #fff;
 }
 
 .list_news .headlines .headlinesday,
