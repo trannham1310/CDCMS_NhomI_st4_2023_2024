@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying search results pages
  *
@@ -11,22 +12,40 @@
 
 get_header();
 
-if ( have_posts() ) {
-	?>
-	<header class="page-header alignwide">
-		<h1 class="page-title">
-			<?php
+if (have_posts()) {
+	
+?>
+<header class="page-header alignwide">
+    <h1 class="page-title">
+        <?php
 			printf(
 				/* translators: %s: Search term. */
-				esc_html__( 'Results for "%s"', 'twentytwentyone' ),
-				'<span class="page-description search-term">' . esc_html( get_search_query() ) . '</span>'
+				esc_html__('Results for "%s"', 'twentytwentyone'),
+				'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
 			);
 			?>
-		</h1>
-	</header><!-- .page-header -->
+    </h1>
+</header><!-- .page-header -->
 
-	<div class="search-result-count default-max-width">
-		<?php
+<div class="page-content default-max-width">
+    <?php
+		printf(
+			'<p>' . wp_kses(
+				/* translators: %s: Link to WP admin new post page. */
+				__('Ready to publish your first post? <a href="%s">Get started here</a>.', 'twentytwentyone'),
+				array(
+					'a' => array(
+						'href' => array(),
+					),
+				)
+			) . '</p>',
+			esc_url(admin_url('post-new.php'))
+
+		);
+		?> </div>
+<!-- .page-content -->
+<div class="search-result-count default-max-width">
+    <?php
 		printf(
 			esc_html(
 				/* translators: %d: The number of search results. */
@@ -40,10 +59,10 @@ if ( have_posts() ) {
 			(int) $wp_query->found_posts
 		);
 		?>
-	</div><!-- .search-result-count -->
-	<?php
+</div><!-- .search-result-count -->
+<?php
 	// Start the Loop.
-	while ( have_posts() ) {
+	while (have_posts()) {
 		the_post();
 
 		/*
@@ -51,7 +70,7 @@ if ( have_posts() ) {
 		 * If you want to override this in a child theme, then include a file
 		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 		 */
-		get_template_part( 'template-parts/content/content-excerpt', get_post_format() );
+		get_template_part('template-parts/content/content-excerpt', get_post_format());
 	} // End the loop.
 
 	// Previous/next page navigation.
@@ -59,7 +78,7 @@ if ( have_posts() ) {
 
 	// If no content, include the "No posts found" template.
 } else {
-	get_template_part( 'template-parts/content/content-none' );
+	get_template_part('template-parts/content/content-none');
 }
 
 get_footer();
