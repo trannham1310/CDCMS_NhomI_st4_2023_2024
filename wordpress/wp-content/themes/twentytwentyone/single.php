@@ -14,37 +14,6 @@ get_header();
 
 /* Start the Loop */
 while (have_posts()) :
-<<<<<<< Updated upstream
-  the_post();
-
-  get_template_part('template-parts/content/content-single');
-
-  if (is_attachment()) {
-    // Parent post navigation.
-    the_post_navigation(
-      array(
-        /* translators: %s: Parent post link. */
-        'prev_text' => sprintf(__('<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'twentytwentyone'), '%title'),
-      )
-    );
-  }
-
-  // If comments are open or there is at least one comment, load up the comment template.
-  if (comments_open() || get_comments_number()) {
-    comments_template();
-  }
-
-  // Previous/next post navigation.
-  $twentytwentyone_next = is_rtl() ? twenty_twenty_one_get_icon_svg('ui', 'arrow_left') : twenty_twenty_one_get_icon_svg('ui', 'arrow_right');
-  $twentytwentyone_prev = is_rtl() ? twenty_twenty_one_get_icon_svg('ui', 'arrow_right') : twenty_twenty_one_get_icon_svg('ui', 'arrow_left');
-
-  $twentytwentyone_next_label     = esc_html__('Next post', 'twentytwentyone');
-  $twentytwentyone_previous_label = esc_html__('Previous post', 'twentytwentyone');
-
-  the_post_navigation(
-    array(
-      'next_text' => '<p class="meta-nav">' . $twentytwentyone_next_label . $twentytwentyone_next . '</p> <div class="list_news">
-=======
 	the_post();
 
 	get_template_part('template-parts/content/content-single');
@@ -65,32 +34,15 @@ while (have_posts()) :
 	}
 
 	// Previous/next post navigation.
-
 	$twentytwentyone_next = is_rtl() ? twenty_twenty_one_get_icon_svg('ui', 'arrow_left') : twenty_twenty_one_get_icon_svg('ui', 'arrow_right');
 	$twentytwentyone_prev = is_rtl() ? twenty_twenty_one_get_icon_svg('ui', 'arrow_right') : twenty_twenty_one_get_icon_svg('ui', 'arrow_left');
+
 	$twentytwentyone_next_label     = esc_html__('Next post', 'twentytwentyone');
 	$twentytwentyone_previous_label = esc_html__('Previous post', 'twentytwentyone');
 
-	$chuoi = esc_html(get_the_date(DATE_W3C));
-
-	// Chuyển đổi chuỗi thành đối tượng datetime
-	$datetime = date_create($chuoi);
-
-	// Định dạng thời gian theo định dạng "d/m/Y"
-	$ngay_thang_nam = $datetime->format('d/m/Y');
-
-	// Tách chuỗi thành mảng
-	$mang = explode("/", $ngay_thang_nam);
-
-	// Gán giá trị cho các biến
-	$ngay = $mang[0];
-	$thang = $mang[1];
-	$nam = $mang[2];
 	the_post_navigation(
 		array(
 			'next_text' => '<p class="meta-nav">' . $twentytwentyone_next_label . $twentytwentyone_next . '</p> <div class="list_news">
-
->>>>>>> Stashed changes
       <div class="headlines">
         <ul>
           <li>
@@ -629,7 +581,9 @@ get_footer();
     clear: both;
 }
 
-.list_news {}
+.list_news {
+    margin-top: 0px;
+}
 
 .list_new_view {
     margin-bottom: 15px;
