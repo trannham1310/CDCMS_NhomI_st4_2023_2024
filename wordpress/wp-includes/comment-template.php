@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 <?php
 /**
  * Comment template functions
@@ -2499,7 +2501,7 @@ function comment_form( $args = array(), $post = null ) {
 	$checked_attribute  = ( $html5 ? ' checked' : ' checked="checked"' );
 
 	// Identify required fields visually and create a message about the indicator.
-	$required_indicator = ' ';// . wp_required_field_indicator();
+	$required_indicator = ' ' ;//. wp_required_field_indicator();
 	$required_text      = ' ' . wp_required_field_message();
 
 	$fields = array(
@@ -2764,6 +2766,42 @@ function comment_form( $args = array(), $post = null ) {
 				$first_field = reset( $comment_field_keys );
 				$last_field  = end( $comment_field_keys );
 
+				$submit_button = sprintf(
+					$args['submit_button'],
+					esc_attr( $args['name_submit'] ),
+					esc_attr( $args['id_submit'] ),
+					esc_attr( $args['class_submit'] ),
+					esc_attr( $args['label_submit'] )
+				);
+
+				/**
+				 * Filters the submit button for the comment form to display.
+				 *
+				 * @since 4.2.0
+				 *
+				 * @param string $submit_button HTML markup for the submit button.
+				 * @param array  $args          Arguments passed to comment_form().
+				 */
+				$submit_button = apply_filters( 'comment_form_submit_button', $submit_button, $args );
+
+				$submit_field = sprintf(
+					$args['submit_field'],
+					$submit_button,
+					get_comment_id_fields( $post_id )
+				);
+
+				/**
+				 * Filters the submit field for the comment form to display.
+				 *
+				 * The submit field includes the submit button, hidden fields for the
+				 * comment form, and any wrapper markup.
+				 *
+				 * @since 4.2.0
+				 *
+				 * @param string $submit_field HTML markup for the submit field.
+				 * @param array  $args         Arguments passed to comment_form().
+				 */
+
 				foreach ( $comment_fields as $name => $field ) {
 
 					if ( 'comment' === $name ) {
@@ -2775,42 +2813,44 @@ function comment_form( $args = array(), $post = null ) {
 						 *
 						 * @param string $args_comment_field The content of the comment textarea field.
 						 */
-						// echo apply_filters( 'comment_form_field_comment', $field );
 
-						// echo $args['comment_notes_after'];
+						if ( ! is_user_logged_in() ) {
+							echo apply_filters( 'comment_form_field_comment', $field );
 
-						echo '<!--- Post Form Begins -->
-						<section class="card">
-							<div class="card-header">
-								<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-									<li class="nav-item">
-										<a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Make
-											a Post</a>
-									</li>
-								</ul>
-							</div>
-							<div class="card-body">
-								<div class="tab-content" id="myTabContent">
-									<div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-										<div class="form-group">
-											<label class="sr-only" for="message">post</label>						
-											'. apply_filters( 'comment_form_field_comment', $field ) .'
+							echo $args['comment_notes_after'];
+						} else {
+							echo '<!--- Post Form Begins -->
+							<section class="card">
+								<div class="card-header">
+									<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+										<li class="nav-item">
+											<a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Make
+												a Post</a>
+										</li>
+									</ul>
+								</div>
+								<div class="card-body">
+									<div class="tab-content" id="myTabContent">
+										<div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+											<div class="form-group">						
+												'. apply_filters( 'comment_form_field_comment', $field ) .'
+											</div>
+
 										</div>
-
+									</div>
+									<div class="text-right" style="height: 40px">
+										<button type="submit" class="btn btn-primary">share</button>
+										<div style="visibility: hidden">
+										'. apply_filters( 'comment_form_submit_field', $submit_field, $args ) .'
+										</div>
 									</div>
 								</div>
-								<div class="text-right">
-									<button type="submit" class="btn btn-primary">share</button>
-								</div>
-							</div>
-						</section>
-						<!--- Post Form Ends -->';
+							</section>
+							<!--- Post Form Ends -->';
+							echo $args['comment_notes_after'];
+						}
 
 					} elseif ( ! is_user_logged_in() ) {
-
-						// echo apply_filters( 'comment_form_field_comment', $field );
-
-						// echo $args['comment_notes_after'];
 
 						if ( $first_field === $name ) {
 							/**
@@ -2841,52 +2881,19 @@ function comment_form( $args = array(), $post = null ) {
 						 */
 						echo apply_filters( "comment_form_field_{$name}", $field ) . "\n";
 
-						// if ( $last_field === $name ) {
-						// 	/**
-						// 	 * Fires after the comment fields in the comment form, excluding the textarea.
-						// 	 *
-						// 	 * @since 3.0.0
-						// 	 */
-						// 	do_action( 'comment_form_after_fields' );
-						// }
-
-						$submit_button = sprintf(
-							$args['submit_button'],
-							esc_attr( $args['name_submit'] ),
-							esc_attr( $args['id_submit'] ),
-							esc_attr( $args['class_submit'] ),
-							esc_attr( $args['label_submit'] )
-						);
-		
-						/**
-						 * Filters the submit button for the comment form to display.
-						 *
-						 * @since 4.2.0
-						 *
-						 * @param string $submit_button HTML markup for the submit button.
-						 * @param array  $args          Arguments passed to comment_form().
-						 */
-						$submit_button = apply_filters( 'comment_form_submit_button', $submit_button, $args );
-		
-						$submit_field = sprintf(
-							$args['submit_field'],
-							$submit_button,
-							get_comment_id_fields( $post_id )
-						);
-		
-						/**
-						 * Filters the submit field for the comment form to display.
-						 *
-						 * The submit field includes the submit button, hidden fields for the
-						 * comment form, and any wrapper markup.
-						 *
-						 * @since 4.2.0
-						 *
-						 * @param string $submit_field HTML markup for the submit field.
-						 * @param array  $args         Arguments passed to comment_form().
-						 */
-						echo apply_filters( 'comment_form_submit_field', $submit_field, $args );
+						if ( $last_field === $name ) {
+							/**
+							 * Fires after the comment fields in the comment form, excluding the textarea.
+							 *
+							 * @since 3.0.0
+							 */
+							do_action( 'comment_form_after_fields' );
+						}
 					}
+				}
+
+				if ( ! is_user_logged_in() ) {
+					echo apply_filters( 'comment_form_submit_field', $submit_field, $args );
 				}
 
 				/**
