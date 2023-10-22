@@ -115,13 +115,20 @@
 								$title     = get_the_title($post);
 								$date = get_the_date();
 								$chuoi = esc_html(get_the_date(DATE_W3C));
+
+								// Chuyển đổi chuỗi thành đối tượng datetime
+								$datetime = date_create($chuoi);
+
+								// Định dạng thời gian theo định dạng "d/m/Y"
+								$ngay_thang_nam = $datetime->format('d/m/Y');
+
 								// Tách chuỗi thành mảng
-								$mang = explode("-", $chuoi);
+								$mang = explode("/", $ngay_thang_nam);
+
 								// Gán giá trị cho các biến
-								$ngay = $mang[2];
+								$ngay = $mang[0];
 								$thang = $mang[1];
-								$nam = $mang[0];
-								$ngay = substr($ngay, 0, 2);
+								$nam = $mang[2];
 								echo ' <div class="list_news">
 									<div class="headlines">
 										<ul>
