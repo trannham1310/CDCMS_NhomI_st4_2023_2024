@@ -111,7 +111,7 @@ if (have_posts()) {
 			$ngay_thang_nam = esc_html(get_the_date());
 			echo '<li>
 			<a  href="' . $post_link . '"> ' . $title . '</a>
-       		<a href="#" class="float-right">' . $ngay_thang_nam . '</a>
+       		<a href="' . $post_link . '" class="float-right">' . $ngay_thang_nam . '</a>
       		<p>' . get_the_excerpt($post->ID) . '</p>
         	</li>';
 		}
