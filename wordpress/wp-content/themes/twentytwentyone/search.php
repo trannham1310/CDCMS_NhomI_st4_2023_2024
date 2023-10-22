@@ -16,11 +16,11 @@ if (have_posts()) {
 
 ?>
 <header class="page-header alignwide">
-    <h1 class="page-title">
+    <h1 class="page-title ">
         <?php
 			printf(
 				/* translators: %s: Search term. */
-				esc_html__('Results for "%s"', 'twentytwentyone'),
+				esc_html__('Search for "%s"', 'twentytwentyone'),
 				'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
 			);
 			?>
@@ -28,21 +28,23 @@ if (have_posts()) {
 </header><!-- .page-header -->
 
 <div class="page-content default-max-width">
-    <?php
-		printf(
-			'<p>' . wp_kses(
-				/* translators: %s: Link to WP admin new post page. */
-				__('Ready to publish your first post? <a href="%s">Get started here</a>.', 'twentytwentyone'),
-				array(
-					'a' => array(
-						'href' => array(),
-					),
-				)
-			) . '</p>',
-			esc_url(admin_url('post-new.php'))
 
-		);
-		?> </div>
+    <h5 class="page-title1 hienthi " style="text-align: center; color:red;">
+        <?php
+			printf(
+				/* translators: %s: Search term. */
+				esc_html__('Search:"%s"', 'twentytwentyone'),
+				'<span class="page-description search-term" style=" color:black;">' . esc_html(get_search_query()) . '</span>'
+			);
+			?>
+    </h5>
+    <p class="text-center">
+        <?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwentyone'); ?>
+    </p>
+    <div class="bg-input-search">
+        <?php get_search_form(); ?>
+    </div>
+</div>
 <!-- .page-content -->
 <div class="search-result-count default-max-width">
     <?php
