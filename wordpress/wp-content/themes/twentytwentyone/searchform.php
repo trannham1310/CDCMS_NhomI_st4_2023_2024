@@ -48,53 +48,5 @@ $twentytwentyone_aria_label = !empty($args['aria_label']) ? 'aria-label="' . esc
     </form>
 </div>
 <style>
-    .height {
-        height: 10vh;
-        background: #f5efe0
-    }
 
-
-
-    .search1 {
-        position: relative;
-        box-shadow: 0 0 40px rgba(51, 51, 51, .1);
-
-    }
-
-    .search1 input {
-
-        height: 60px;
-        text-indent: 25px;
-        border: 2px solid #d6d4d4;
-
-
-    }
-
-
-    .search1 input:focus {
-
-        box-shadow: none;
-        border: 2px solid blue;
-
-
-    }
-
-    .search1 .fa-search {
-
-        position: absolute;
-        top: 20px;
-        left: 16px;
-
-    }
-
-    .search1 button {
-
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        height: 40px;
-        width: 100px;
-        background: green;
-        color: white;
-    }
 </style>
