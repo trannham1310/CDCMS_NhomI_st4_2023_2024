@@ -5992,3 +5992,52 @@ footer {
 .is-IE .post-thumbnail .wp-post-image {
 	min-width: auto;
 }
+
+/*Search not found*/
+#main .page-content .search .btn {
+	background-color: #2aa745 !important;
+	color: #ffff;
+}
+
+#page {
+	background-color: white !important;
+	height: 100vh !important;
+}
+
+#main .no-results .page-title1 {
+	color: #d54b58 !important;
+}
+
+#main .bg-search-not-found .default-max-width {
+	max-width: 100%;
+}
+
+#main .bg-search-not-found .default-max-width .text-center {
+	max-width: var(--responsive--aligndefault-width);
+	margin: 0 auto;
+}
+
+#main .bg-search-not-found .default-max-width .justify-content-center {
+	max-width: var(--responsive--aligndefault-width);
+	margin: 0 auto;
+}
+
+.bg-search-not-found .bg-input-search {
+	background: #f5efe0;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#content .no-results .page-title1 .search-term {
+	color: black;
+}
+
+#content .no-results .page-title1 .search-term::after {
+	color: black;
+	content: '"';
+}
+
+#content .no-results .page-title1 .search-term::before {
+	color: black;
+	content: '"';
+}
