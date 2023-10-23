@@ -80,14 +80,13 @@ function render_block_core_latest_posts($attributes)
 			border-bottom: solid 1.5px #ebebeb;
 		} */
 		.xn:before {
-    content: "";
-    width: 100%;
-    height: 1px;
-    background: #9f224e;
-    position: absolute;
-    left: 0;
-    
-}
+			content: "";
+			width: 100px;
+			height: 1px;
+			background: #9f224e;
+			position: absolute;
+			transform: translateY(30px);
+		}
 		.so , .chu{
 			display: inline-block;
 			
