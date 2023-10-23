@@ -116,15 +116,17 @@ section .section-title {
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Categories</h5>
 					<?php
-					var_dump(get_the_category_list());
+					// var_dump(get_the_category_list());
 					?>
+					<ul class="list-unstyled quick-links">
 					<?php 
-								$categories_list = get_the_category_list( wp_get_list_item_separator() );
-								$categorys = explode(", ", $categories_list);
-								foreach ($categorys as $category) {
-									echo '<li class="list-group-item">'. $category .'</li>';
-								}
+						$categories_list = get_the_category_list( wp_get_list_item_separator() );
+						$categorys = explode(", ", $categories_list);
+						foreach ($categorys as $category) {
+							echo '<li>'. $category .'</li>';
+						}
 					?>
+					</ul>
 					<!-- <ul class="list-unstyled quick-links">
 						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
 						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
