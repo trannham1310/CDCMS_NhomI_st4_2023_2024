@@ -15,39 +15,39 @@ get_header();
 if (have_posts()) {
 
 ?>
-	<header class="page-header alignwide">
-		<h1 class="page-title ">
-			<?php
+<header class="page-header alignwide">
+    <h1 class="page-title ">
+        <?php
 			printf(
 				/* translators: %s: Search term. */
 				esc_html__('Search for "%s"', 'twentytwentyone'),
 				'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
 			);
 			?>
-		</h1>
-	</header><!-- .page-header -->
+    </h1>
+</header><!-- .page-header -->
 
-	<div class="page-content default-max-width">
+<div class="page-content default-max-width">
 
-		<h5 class="page-title1 hienthi " style="text-align: center; color:red;">
-			<?php
+    <h5 class="page-title1 hienthi " style="text-align: center; color:red;">
+        <?php
 			printf(
 				/* translators: %s: Search term. */
 				esc_html__('Search:"%s"', 'twentytwentyone'),
 				'<span class="page-description search-term" style=" color:black;">' . esc_html(get_search_query()) . '</span>'
 			);
 			?>
-		</h5>
-		<p class="text-center">
-			<?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwentyone'); ?>
-		</p>
-		<div class="bg-input-search">
-			<?php get_search_form(); ?>
-		</div>
-	</div>
-	<!-- .page-content -->
-	<div class="search-result-count default-max-width">
-		<?php
+    </h5>
+    <p class="text-center">
+        <?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwentyone'); ?>
+    </p>
+    <div class="bg-input-search">
+        <?php get_search_form(); ?>
+    </div>
+</div>
+<!-- .page-content -->
+<div class="search-result-count default-max-width">
+    <?php
 		printf(
 			esc_html(
 				/* translators: %d: The number of search results. */
@@ -61,9 +61,9 @@ if (have_posts()) {
 			(int) $wp_query->found_posts
 		);
 		?>
-	</div><!-- .search-result-count -->
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</div><!-- .search-result-count -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <?php
 	// Start the Loop.
 	while (have_posts()) {
@@ -88,8 +88,8 @@ if (have_posts()) {
 ?>
 <div class="crossedbg"></div>
 <div class="panel-body">
-	<ul class="list-group">
-		<?php
+    <ul class="list-group">
+        <?php
 		$args = array(
 			'post_type' => 'post',
 			'orderby' => 'date',
@@ -121,7 +121,7 @@ if (have_posts()) {
 
 </div>';
 		?>
-	</ul>
+    </ul>
 
 </div>
 
@@ -132,39 +132,39 @@ if (have_posts()) {
 get_footer();
 ?>
 <style>
-	ul.timeline {
-		list-style-type: none;
-		position: relative;
-	}
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
 
-	ul.timeline:before {
-		content: ' ';
-		background: #d4d9df;
-		display: inline-block;
-		position: absolute;
-		left: 29px;
-		width: 2px;
-		height: 100%;
-		z-index: 400;
-	}
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
 
-	ul.timeline>li {
-		margin: 20px 0;
-		padding-left: 20px;
-	}
+ul.timeline>li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
 
 
 
-	ul.timeline>li:before {
-		content: ' ';
-		background: white;
-		display: inline-block;
-		position: absolute;
-		border-radius: 50%;
-		border: 3px solid #22c0e8;
-		left: 20px;
-		width: 20px;
-		height: 20px;
-		z-index: 400;
-	}
+ul.timeline>li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #22c0e8;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
 </style>
