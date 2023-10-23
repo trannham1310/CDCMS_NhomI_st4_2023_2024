@@ -48,20 +48,11 @@
 		color: #000000;
 	}
 
-	h4 {
-		background-color: #ffffff;
-		color: #000000;
+	header-detail {
+		background-color: white;
+		color: blue;
 		font-size: 18px;
 		font-weight: bold;
-	}
-
-	p {
-		color: #000000;
-		font-size: 14px;
-	}
-
-	a {
-		text-decoration: none;
 	}
 
 	.row {
