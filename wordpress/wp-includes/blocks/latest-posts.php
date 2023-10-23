@@ -76,16 +76,16 @@ function render_block_core_latest_posts($attributes)
 	$list_items_markup = '';
 ?>
 	<style>
-		/* .xn {
+		.xn {
 			border-bottom: solid 1.5px #ebebeb;
-		} */
+		}
 		.xn:before {
 			content: "";
 			width: 100px;
 			height: 1px;
 			background: #9f224e;
 			position: absolute;
-			transform: translateY(30px);
+			transform: translateY(25px);
 		}
 		.so , .chu{
 			display: inline-block;
@@ -112,7 +112,6 @@ function render_block_core_latest_posts($attributes)
 		}
 		
 	</style>
-	<section id="Last-post">
 		<div class="xn" style="margin-left: 13px;"> Xem nhiều </div>
 		<div class="container">
 			<div class="row">
@@ -243,7 +242,6 @@ function render_block_core_latest_posts($attributes)
 				</div>
 			</div>
 		</div>
-	</section>
 
 <?php
 	foreach ($recent_posts as $post) {
