@@ -102,8 +102,7 @@ if (have_posts()) {
 
 		echo
 		'<div class="container mt-5 mb-5">
-		<div class="row">
-			<div class="col-md-6 offset-md-3">
+		
 				<h4>Latest News</h4>
 				<ul class="timeline">';
 		for ($i = 0; $i < count($posts); $i++) {
@@ -119,8 +118,7 @@ if (have_posts()) {
 		}
 		echo '
     </ul>
-</div>
-</div>
+
 </div>';
 		?>
     </ul>
