@@ -200,6 +200,7 @@ get_footer();
         border-top: 1px solid #d9d9d9;
         content: " ";
         width: 100%;
+<<<<<<< Updated upstream
     }
 
     .timeline>li>.timeline-badge {
@@ -215,6 +216,23 @@ get_footer();
         z-index: 5;
     }
 
+=======
+    }
+
+    .timeline>li>.timeline-badge {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        top: 19px;
+        left: 50%;
+        margin-left: -10px;
+        background-color: #fff;
+        border: 2px solid #d9d9d9;
+        border-radius: 50%;
+        z-index: 5;
+    }
+
+>>>>>>> Stashed changes
     .timeline>li.timeline-inverted>.timeline-panel {
         float: right;
     }
@@ -586,7 +604,11 @@ get_footer();
     }
 
     .list_new_view {
+<<<<<<< Updated upstream
         margin: 0px;
+=======
+        margin-bottom: 15px;
+>>>>>>> Stashed changes
     }
 
     .prof_articles .top_news_block {
