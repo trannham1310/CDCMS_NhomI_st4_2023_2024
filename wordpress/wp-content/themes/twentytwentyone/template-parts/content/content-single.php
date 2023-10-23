@@ -98,7 +98,7 @@
             );
             ?>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" style="margin: 0">
             <div class="widget topworks_itdc">
                 <div class="panel panel-default">
                     <h2>Recent Post</h2>
@@ -108,6 +108,7 @@
                             <?php
                             $query        = new WP_Query();
                             $recent_posts = $query->query($args);
+<<<<<<< HEAD
 
                             foreach ($recent_posts as $post) {
                                 $post_link = esc_url(get_permalink(get_the_ID()));
@@ -115,6 +116,14 @@
                                 $date = get_the_date();
                                 $chuoi = esc_html(get_the_date(DATE_W3C));
 
+=======
+
+                            foreach ($recent_posts as $post) {
+                                $post_link = esc_url(get_permalink(get_the_ID()));
+                                $title     = get_the_title($post);
+                                $date = get_the_date();
+                                $chuoi = esc_html(get_the_date(DATE_W3C));
+>>>>>>> thang-10
 
                                 // Chuyển đổi chuỗi thành đối tượng datetime
                                 $datetime = date_create($chuoi);

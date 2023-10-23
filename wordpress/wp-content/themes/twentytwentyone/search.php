@@ -15,18 +15,25 @@ get_header();
 if (have_posts()) {
 
 ?>
+<<<<<<< HEAD
 <header class="page-header alignwide">
     <h1 class="page-title ">
         <?php
+=======
+	<header class="page-header alignwide">
+		<h1 class="page-title">
+			<?php
+>>>>>>> thang-10
 			printf(
 				/* translators: %s: Search term. */
 				esc_html__('Search for "%s"', 'twentytwentyone'),
 				'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
 			);
 			?>
-    </h1>
-</header><!-- .page-header -->
+		</h1>
+	</header><!-- .page-header -->
 
+<<<<<<< HEAD
 <div class="page-content default-max-width">
 
     <h5 class="page-title1 hienthi " style="text-align: center; color:red;">
@@ -48,6 +55,27 @@ if (have_posts()) {
 <!-- .page-content -->
 <div class="search-result-count default-max-width">
     <?php
+=======
+	<div class="page-content default-max-width">
+		<?php
+		printf(
+			'<p>' . wp_kses(
+				/* translators: %s: Link to WP admin new post page. */
+				__('Ready to publish your first post? <a href="%s">Get started here</a>.', 'twentytwentyone'),
+				array(
+					'a' => array(
+						'href' => array(),
+					),
+				)
+			) . '</p>',
+			esc_url(admin_url('post-new.php'))
+
+		);
+		?> </div>
+	<!-- .page-content -->
+	<div class="search-result-count default-max-width">
+		<?php
+>>>>>>> thang-10
 		printf(
 			esc_html(
 				/* translators: %d: The number of search results. */
@@ -61,9 +89,13 @@ if (have_posts()) {
 			(int) $wp_query->found_posts
 		);
 		?>
+<<<<<<< HEAD
 </div><!-- .search-result-count -->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+=======
+	</div><!-- .search-result-count -->
+>>>>>>> thang-10
 <?php
 	// Start the Loop.
 	while (have_posts()) {
@@ -85,6 +117,7 @@ if (have_posts()) {
 	get_template_part('template-parts/content/content-none');
 }
 
+<<<<<<< HEAD
 ?>
 <div class="crossedbg"></div>
 <div class="panel-body">
@@ -168,3 +201,6 @@ ul.timeline>li:before {
     z-index: 400;
 }
 </style>
+=======
+get_footer();
+>>>>>>> thang-10
