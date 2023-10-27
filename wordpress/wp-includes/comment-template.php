@@ -2499,7 +2499,7 @@ function comment_form( $args = array(), $post = null ) {
 	$checked_attribute  = ( $html5 ? ' checked' : ' checked="checked"' );
 
 	// Identify required fields visually and create a message about the indicator.
-	$required_indicator = ' ' ;//. wp_required_field_indicator();
+	$required_indicator = ' ' . wp_required_field_indicator();
 	$required_text      = ' ' . wp_required_field_message();
 
 	$fields = array(
@@ -2579,8 +2579,8 @@ function comment_form( $args = array(), $post = null ) {
 		'comment_field'        => sprintf(
 			'<p class="comment-form-comment">%s %s</p>',
 			sprintf(
-				// '<label for="comment">%s%s</label>',
-				// _x( 'Comment', 'noun' ),
+				'<label for="comment">%s%s</label>',
+				_x( 'Comment', 'noun' ),
 				$required_indicator
 			),
 			'<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
@@ -2817,35 +2817,7 @@ function comment_form( $args = array(), $post = null ) {
 
 							echo $args['comment_notes_after'];
 						} else {
-							echo '<!--- Post Form Begins -->
-							<section class="card">
-								<div class="card-header">
-									<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-										<li class="nav-item">
-											<a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Make
-												a Post</a>
-										</li>
-									</ul>
-								</div>
-								<div class="card-body">
-									<div class="tab-content" id="myTabContent">
-										<div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-											<div class="form-group">						
-												'. apply_filters( 'comment_form_field_comment', $field ) .'
-											</div>
-
-										</div>
-									</div>
-									<div class="text-right" style="height: 40px">
-										<button type="submit" class="btn btn-primary">share</button>
-										<div style="visibility: hidden">
-										'. apply_filters( 'comment_form_submit_field', $submit_field, $args ) .'
-										</div>
-									</div>
-								</div>
-							</section>
-							<!--- Post Form Ends -->';
-							echo $args['comment_notes_after'];
+							dynamic_sidebar( 'comment-8' );
 						}
 
 					} elseif ( ! is_user_logged_in() ) {
