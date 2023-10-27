@@ -75,7 +75,7 @@
 		<div class="col-md-3">
 			<div class="widget topworks_itdc">
 				<div class="panel panel-default">
-					<h2>Category</h2>
+					<h2>Categories</h2>
 					<div class="crossedbg"></div>
 					<div class="panel-body">
 						<ul class="list-group">
