@@ -2579,13 +2579,13 @@ function comment_form( $args = array(), $post = null ) {
 	$defaults = array(
 		'fields'               => $fields,
 		'comment_field'        => sprintf(
-			'<p class="comment-form-comment 111111">%s %s</p>',
+			'<p class="comment-form-comment">%s %s</p>',
 			sprintf(
 				// '<label for="comment">%s%s</label>',
 				// _x( 'Comment', 'noun' ),
 				$required_indicator
 			),
-			'<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525"' . $required_attribute . '></textarea>'
+			'<textarea style="border: 1px solid #ced4da !important;" class="form-control" id="comment" name="comment" rows="3" maxlength="65525" placeholder="What are you thinking..."' . $required_attribute . '></textarea>'
 		),
 		'must_log_in'          => sprintf(
 			'<p class="must-log-in">%s</p>',
@@ -2819,7 +2819,8 @@ function comment_form( $args = array(), $post = null ) {
 
 							echo $args['comment_notes_after'];
 						} else {
-							echo '<!--- Post Form Begins -->
+							echo '
+							<!--- Post Form Begins -->
 							<section class="card">
 								<div class="card-header">
 									<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
@@ -2839,14 +2840,15 @@ function comment_form( $args = array(), $post = null ) {
 										</div>
 									</div>
 									<div class="text-right" style="height: 40px">
-										<button type="submit" class="btn btn-primary">share</button>
+										<button style="background: #007bff" type="submit" class="btn btn-primary">share</button>
 										<div style="visibility: hidden">
 										'. apply_filters( 'comment_form_submit_field', $submit_field, $args ) .'
 										</div>
 									</div>
 								</div>
 							</section>
-							<!--- Post Form Ends -->';
+							<!--- Post Form Ends -->
+							';
 							echo $args['comment_notes_after'];
 						}
 
