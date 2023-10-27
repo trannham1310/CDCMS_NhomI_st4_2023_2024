@@ -92,31 +92,86 @@
                 </div>
             </div>
         </div>
-		<div class="col-md-6">
-		<?php
-		the_content();
+        <div class="col-md-6">
+            <?php
+            the_content();
 
-		wp_link_pages(
-			array(
-				'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'twentytwentyone' ) . '">',
-				'after'    => '</nav>',
-				/* translators: %: Page number. */
-				'pagelink' => esc_html__( 'Page %', 'twentytwentyone' ),
-			)
-		);
-		?>
-		</div>
-		<div class="col-md-3">
+            wp_link_pages(
+                array(
+                    'before'   => '<nav class="page-links" aria-label="' . esc_attr__('Page', 'twentytwentyone') . '">',
+                    'after'    => '</nav>',
+                    /* translators: %: Page number. */
+                    'pagelink' => esc_html__('Page %', 'twentytwentyone'),
+                )
+            );
+            ?>
+        </div>
+        <div class="col-md-3" style="margin: 0">
+            <div class="widget topworks_itdc">
+                <div class="panel panel-default">
+                    <h2>Recent Post</h2>
+                    <div class="crossedbg"></div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <?php
+                            $query        = new WP_Query();
+                            $recent_posts = $query->query($args);
 
-		</div>
-	</div><!-- .entry-content -->
+                            foreach ($recent_posts as $post) {
+                                $post_link = esc_url(get_permalink(get_the_ID()));
+                                $title     = get_the_title($post);
+                                $date = get_the_date();
+                                $chuoi = esc_html(get_the_date(DATE_W3C));
 
-	<footer class="entry-footer default-max-width ksjdfjsdnf">
-		<?php twenty_twenty_one_entry_meta_footer(); ?>
-	</footer><!-- .entry-footer -->
+                                // Chuyển đổi chuỗi thành đối tượng datetime
+                                $datetime = date_create($chuoi);
 
-	<?php if ( ! is_singular( 'attachment' ) ) : ?>
-		<?php get_template_part( 'template-parts/post/author-bio' ); ?>
-	<?php endif; ?>
+                                // Định dạng thời gian theo định dạng "d/m/Y"
+                                $ngay_thang_nam = $datetime->format('d/m/Y');
+
+                                // Tách chuỗi thành mảng
+                                $mang = explode("/", $ngay_thang_nam);
+
+                                // Gán giá trị cho các biến
+                                $ngay = $mang[0];
+                                $thang = $mang[1];
+                                $nam = $mang[2];
+                                echo ' <div class="list_news">
+									<div class="headlines">
+										<ul>
+											<li>
+												<div class="headlinesdate">
+													<div class="headlinesdm">
+														<div class="headlinesday">' . $ngay . ' </div>
+														<div class="headlinesmonth">' . $thang . '</div>
+													</div>
+													<div class="headlinesyear">' . $nam . '</div>
+												</div>
+												<div class="headlinestitle">
+													</p>
+													<a href="' . $post_link . '" style="text-decoration: none;" ><p class="post-title" > ' . $title . ' </p></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>';
+                                wp_reset_query();
+                            }
+
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .entry-content -->
+
+    <footer class="entry-footer default-max-width ksjdfjsdnf">
+        <?php twenty_twenty_one_entry_meta_footer(); ?>
+    </footer><!-- .entry-footer -->
+
+    <?php if (!is_singular('attachment')) : ?>
+        <?php get_template_part('template-parts/post/author-bio'); ?>
+    <?php endif; ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->
