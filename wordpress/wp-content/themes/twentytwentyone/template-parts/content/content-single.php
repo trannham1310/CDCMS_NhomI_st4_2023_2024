@@ -72,25 +72,25 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 	<div class="entry-content row">
-		<div class="col-md-3">
-			<div class="widget topworks_itdc">
-				<div class="panel panel-default">
-					<h2>Categories</h2>
-					<div class="crossedbg"></div>
-					<div class="panel-body">
-						<ul class="list-group">
-							<?php 
-								$categories_list = get_the_category_list( wp_get_list_item_separator() );
-								$categorys = explode(", ", $categories_list);
-								foreach ($categorys as $category) {
-									echo '<li class="list-group-item">'. $category .'</li>';
-								}
-							?>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="col-md-3">
+            <div class="widget topworks_itdc">
+                <div class="panel panel-default">
+                    <h2>Categories</h2>
+                    <div class="crossedbg"></div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <?php 
+                            $categories_list = get_the_category_list( wp_get_list_item_separator());
+                            $categorys = explode(", ", $categories_list);
+                            foreach ($categorys as $category) {
+                                echo '<li class="list-group-item">' . $category . '</li>';
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 		<div class="col-md-6">
 		<?php
 		the_content();
