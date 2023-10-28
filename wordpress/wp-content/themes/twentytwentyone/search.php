@@ -110,7 +110,7 @@ if (have_posts()) {
 			echo '<li>
 			<a  href="' . $post_link . '"> ' . $title . '</a>
        		<a href="' . $post_link . '" class="float-right">' . $ngay_thang_nam . '</a>
-      		<p>' . get_the_excerpt($post->ID) . '<a  href="' . $post_link . '"  style="color:black">...</a></p>
+      		<p>' . get_the_excerpt($post->ID) . '<a  href="' . $post_link . '"  style="color:black; text-decoration:none">...</a></p>
 
         </li>';
 		}
