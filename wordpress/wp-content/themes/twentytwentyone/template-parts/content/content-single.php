@@ -41,14 +41,22 @@
         .list-group-item {
             border: none;
             border-bottom: 1px #d9d9d9 solid;
-            margin-bottom: 0;
             padding-left: 0;
             padding-right: 0;
         }
+        
+        .list-group li {
+            line-height: 1.5 !important;
+        }
+
+        .list-group-item a {
+            color: #007bff !important;
+            text-decoration: none;
+        }
 
         .list-group {
-            list-style: disc;
-            margin-bottom: 0;
+            border-radius: 0 !important;
+            background: #fff;
         }
 
         .list-group-item:before {
@@ -178,12 +186,12 @@
         <div class="col-md-3">
             <div class="widget topworks_itdc">
                 <div class="panel panel-default">
-                    <h2>Category</h2>
+                    <h2>Categories</h2>
                     <div class="crossedbg"></div>
                     <div class="panel-body">
                         <ul class="list-group">
-                            <?php
-                            $categories_list = get_the_category_list(wp_get_list_item_separator());
+                            <?php 
+                            $categories_list = get_the_category_list( wp_get_list_item_separator());
                             $categorys = explode(", ", $categories_list);
                             foreach ($categorys as $category) {
                                 echo '<li class="list-group-item">' . $category . '</li>';

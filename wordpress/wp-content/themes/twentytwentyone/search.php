@@ -24,8 +24,8 @@ if (have_posts()) {
 				'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
 			);
 			?>
-		</h1>
-	</header><!-- .page-header -->
+    </h1>
+</header><!-- .page-header -->
 
 	<div class="page-content default-max-width">
 
@@ -99,7 +99,8 @@ if (have_posts()) {
 		$query        = new WP_Query();
 
 		echo
-		'<div class="container mt-5 mb-5">		
+		'<div class="container mt-5 mb-5">
+		
 				<h4>Latest News</h4>
 				<ul class="timeline">';
 		for ($i = 0; $i < count($posts); $i++) {
