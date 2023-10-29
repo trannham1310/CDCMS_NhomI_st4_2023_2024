@@ -23,37 +23,53 @@ get_header(); ?>
 <?php endif; ?>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<div class="row me-auto">
-	<div class="col-md-4">
-		<!-- module 11 -->
-	</div>
-	<div class="col-md-4">
-	<?php
-	if ( have_posts() ) {
-		// Load posts loop.
-		while ( have_posts() ) {
-			the_post();
+<link rel="shortcut icon" href="http://el.tdc.edu.vn/theme/image.php/bootstrap/theme/1582081817/favicon" />
+<style>
+	.comment-12, .comment-12 p {
+		margin: 0 !important;
+		border-bottom: 1px solid #eee;
+	}
+	.comment-12 p {
+		font-weight: 700;
+		font-size: 13px;
+		color: #488dc6;
+		padding-left: 15px;
+	}
 
-			get_template_part( 'template-parts/content/content', get_theme_mod( 'display_excerpt_or_full_post', 'excerpt' ) );
-		}
+	.comment-12 p:after {
+		font-family: FontAwesome;
+		content: "\f105";
+		float: right;
+	}
+</style>
+<div class="container">
+	<div class="row me-auto">
+		<div class="col-md-4">
+			<!-- module 11 -->
+		</div>
+		<div class="col-md-4">
+		<?php
+		if ( have_posts() ) {
+			// Load posts loop.
+			while ( have_posts() ) {
+				the_post();
 
-		// Previous/next page navigation.
-		twenty_twenty_one_the_posts_navigation();
+				get_template_part( 'template-parts/content/content', get_theme_mod( 'display_excerpt_or_full_post', 'excerpt' ) );
+			}
 
-	} else {
+			// Previous/next page navigation.
+			twenty_twenty_one_the_posts_navigation();
 
-		// If no content, include the "No posts found" template.
-		get_template_part( 'template-parts/content/content-none' );
+		} else {
 
-	} ?>
-	</div>
-	<div class="col-md-4">
-	<?php
-		// $name = get_comment( $comment = null, $output = OBJECT );
-		// $name = $comment_id_7['comment_author'];
-		// echo $name
-	?>
-	<?php dynamic_sidebar( 'comment-12' ); ?>
+			// If no content, include the "No posts found" template.
+			get_template_part( 'template-parts/content/content-none' );
+
+		} ?>
+		</div>
+		<div class="col-md-4">
+			<?php dynamic_sidebar( 'comment-12' ); ?>
+		</div>
 	</div>
 </div>
 <?php get_footer(); ?>

@@ -662,3 +662,29 @@ if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 		return __( ', ', 'twentytwentyone' );
 	}
 endif;
+
+function get_comment_12() {
+	$comments = get_comments(
+		/** This filter is documented in wp-includes/widgets/class-wp-widget-recent-comments.php */
+		apply_filters(
+			'widget_comments_args',
+			array(
+				// 'number'      => $attributes['commentsToShow'],
+				'status'      => 'approve',
+				'post_status' => 'publish',
+			),
+			array()
+		)
+	);
+
+	$list_items_markup = '';
+	if ( ! empty( $comments ) ) {
+
+		foreach ( $comments as $comment ) {
+
+			$list_items_markup .= '<div class="comment-12">' . wpautop( get_comment_excerpt( $comment ) ) . '</div>';
+		}
+		echo $list_items_markup;
+	}
+}
+add_shortcode( 'call_comment_12', 'get_comment_12' );
