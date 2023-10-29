@@ -677,14 +677,25 @@ function get_comment_12() {
 		)
 	);
 
+	echo '
+	<div class="wpb_wrapper">
+		<h4>Comment</h4>
+		<hr>
+		<ul class="list_comment">
+	';
+
 	$list_items_markup = '';
 	if ( ! empty( $comments ) ) {
 
 		foreach ( $comments as $comment ) {
-
-			$list_items_markup .= '<div class="comment-12">' . wpautop( get_comment_excerpt( $comment ) ) . '</div>';
+			$list_items_markup .= '<li><a href="'. esc_url( get_comment_link( $comment ) ) .'">' . wpautop( get_comment_excerpt( $comment ) ) . '</a></li>';
 		}
 		echo $list_items_markup;
 	}
+
+	echo '
+		</ul>
+	</div>
+	';
 }
-add_shortcode( 'call_comment_12', 'get_comment_12' );
+add_shortcode( 'comment_12', 'get_comment_12' );
