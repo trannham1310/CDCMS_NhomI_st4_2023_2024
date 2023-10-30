@@ -124,89 +124,84 @@ get_header(); ?>
 		left: 0;
 		bottom: -8px;
 	}
-	</style>
-<div class="container">
-	<div class="row">
-		<div class="col-md-4 position-relative">
-			<h4 class="post-title-11">Bài viết yêu thích</h4>
-			<article class="item-news">
-				<div class="row post-view-11">
-					<div class="col-md-6">
-						<?php
-						// Query để lấy danh sách bài viết
-						$query = new WP_Query();
-						$query->query('posts_per_page=3');
+</style>
+<div class="row me-auto">
+	<div class="col-md-4 position-relative">
+		<h4 class="post-title-11">Bài viết yêu thích</h4>
+		<article class="item-news">
+			<div class="row post-view-11">
+				<div class="col-md-6">
+					<?php
+					// Query để lấy danh sách bài viết
+					$query = new WP_Query();
+					$query->query('posts_per_page=3');
 
-						// Số thứ tự bài viết
-						$count = 1;
+					// Số thứ tự bài viết
+					$count = 1;
 
-						while ($query->have_posts()) : $query->the_post(); ?>
-							<div class="post-11">
-								<span class="number-top-view"><?php echo $count; ?></span>
-								<h3 class="title-news"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							</div>
-						<?php
-							// Tăng số thứ tự bài viết lên 1
-							$count++;
-						endwhile;
+					while ($query->have_posts()) : $query->the_post(); ?>
+						<div class="post-11">
+							<span class="number-top-view"><?php echo $count; ?></span>
+							<h3 class="title-news"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+						</div>
+					<?php
+						// Tăng số thứ tự bài viết lên 1
+						$count++;
+					endwhile;
 
-						// Đặt lại query
-						wp_reset_query();
-						?>
-					</div>
-
-					<div class="col-md-6">
-						<?php
-						// Query để lấy danh sách bài viết
-						$query = new WP_Query();
-						$query->query('posts_per_page=3&offset=3');
-
-						// Số thứ tự bài viết
-						$count = 4;
-
-						while ($query->have_posts()) : $query->the_post(); ?>
-							<div class="post-11">
-								<span class="number-top-view"><?php echo $count; ?></span>
-								<h3 class="title-news"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							</div>
-						<?php
-							// Tăng số thứ tự bài viết lên 1
-							$count++;
-						endwhile;
-
-						// Đặt lại query
-						wp_reset_query();
-						?>
-					</div>
+					// Đặt lại query
+					wp_reset_query();
+					?>
 				</div>
-			</article>
-		</div>	
-		<div class="col-md-4">
-			<?php
-			if (have_posts()) {
 
-				// Load posts loop.
-				while (have_posts()) {
-					the_post();
+				<div class="col-md-6">
+					<?php
+					// Query để lấy danh sách bài viết
+					$query = new WP_Query();
+					$query->query('posts_per_page=3&offset=3');
 
-					get_template_part('template-parts/content/content', get_theme_mod('display_excerpt_or_full_post', 'excerpt'));
-				}
+					// Số thứ tự bài viết
+					$count = 4;
 
-				// Previous/next page navigation.
-				twenty_twenty_one_the_posts_navigation();
-			} else {
+					while ($query->have_posts()) : $query->the_post(); ?>
+						<div class="post-11">
+							<span class="number-top-view"><?php echo $count; ?></span>
+							<h3 class="title-news"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+						</div>
+					<?php
+						// Tăng số thứ tự bài viết lên 1
+						$count++;
+					endwhile;
 
-				// If no content, include the "No posts found" template.
-				get_template_part('template-parts/content/content-none');
+					// Đặt lại query
+					wp_reset_query();
+					?>
+				</div>
+			</div>
+		</article>
+	</div>
+	<div class="col-md-6">
+		<?php
+		if ( have_posts() ) {
+			// Load posts loop.
+			while ( have_posts() ) {
+				the_post();
+
+				get_template_part( 'template-parts/content/content', get_theme_mod( 'display_excerpt_or_full_post', 'excerpt' ) );
 			}
-			?>
-		</div>
-		<div class="col-md-4">
-			<?php dynamic_sidebar( 'comment-12' ); ?>
-		</div>
+
+			// Previous/next page navigation.
+			twenty_twenty_one_the_posts_navigation();
+
+		} else {
+
+			// If no content, include the "No posts found" template.
+			get_template_part( 'template-parts/content/content-none' );
+
+		} ?>
+	</div>
+	<div class="col-md-2">
+		<?php dynamic_sidebar( 'comment-12' ); ?>
 	</div>
 </div>
-
-<?php
-get_footer();
-?>
+<?php get_footer(); ?>
