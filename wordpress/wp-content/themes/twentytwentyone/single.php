@@ -601,6 +601,6 @@ get_footer();
 
 .list_news .headlines .headlinesday,
 .detail .headlinesdate .headlinesday {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid black;
 }
 </style>
