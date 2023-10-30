@@ -38,7 +38,7 @@ while (have_posts()) :
 
 	the_post_navigation(
 		array(
-			'next_text' => '<p class="meta-nav">' . $twentytwentyone_next_label . $twentytwentyone_next . '</p> <div class="list_news">
+			'next_text' => '<p class="meta-nav"></p> <div class="list_news">
       <div class="headlines">
         <ul>
           <li>
@@ -56,7 +56,7 @@ while (have_posts()) :
         </ul>
       </div>
     </div>',
-			'prev_text' => '<p class="meta-nav">' . $twentytwentyone_prev . $twentytwentyone_previous_label . '
+			'prev_text' => '<p class="meta-nav">
 			 <div class="list_news">
       <div class="headlines">
         <ul>
