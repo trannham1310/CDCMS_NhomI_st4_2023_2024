@@ -93,12 +93,12 @@ get_header(); ?>
 		display: inline;
 	}
 
-	.post-11 .title-news a {
+	.post-m-11 .title-news a {
 		text-decoration: none;
 		color: #000;
 		padding-left: 10px;
 	}
-	.post-11 {
+	.post-m-11 {
 		border-top: 1px solid #e5e5e5;
 	}
 
@@ -127,60 +127,62 @@ get_header(); ?>
 </style>
 <div class="row me-auto">
 	<div class="col-md-4 position-relative">
-		<h4 class="post-title-11">Bài viết yêu thích</h4>
-		<article class="item-news">
-			<div class="row post-view-11">
-				<div class="col-md-6">
-					<?php
-					// Query để lấy danh sách bài viết
-					$query = new WP_Query();
-					$query->query('posts_per_page=3');
+		<div class="bg-white">
+			<h4 class="post-title-11">Bài viết yêu thích</h4>
+			<article class="item-news">
+				<div class="row post-view-11">
+					<div class="col-md-6">
+						<?php
+						// Query để lấy danh sách bài viết
+						$query = new WP_Query();
+						$query->query('posts_per_page=3');
 
-					// Số thứ tự bài viết
-					$count = 1;
+						// Số thứ tự bài viết
+						$count = 1;
 
-					while ($query->have_posts()) : $query->the_post(); ?>
-						<div class="post-11">
-							<span class="number-top-view"><?php echo $count; ?></span>
-							<h3 class="title-news"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-						</div>
-					<?php
-						// Tăng số thứ tự bài viết lên 1
-						$count++;
-					endwhile;
+						while ($query->have_posts()) : $query->the_post(); ?>
+							<div class="post-m-11">
+								<span class="number-top-view"><?php echo $count; ?></span>
+								<h3 class="title-news"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							</div>
+						<?php
+							// Tăng số thứ tự bài viết lên 1
+							$count++;
+						endwhile;
 
-					// Đặt lại query
-					wp_reset_query();
-					?>
+						// Đặt lại query
+						wp_reset_query();
+						?>
+					</div>
+
+					<div class="col-md-6">
+						<?php
+						// Query để lấy danh sách bài viết
+						$query = new WP_Query();
+						$query->query('posts_per_page=3&offset=3');
+
+						// Số thứ tự bài viết
+						$count = 4;
+
+						while ($query->have_posts()) : $query->the_post(); ?>
+							<div class="post-m-11">
+								<span class="number-top-view"><?php echo $count; ?></span>
+								<h3 class="title-news"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							</div>
+						<?php
+							// Tăng số thứ tự bài viết lên 1
+							$count++;
+						endwhile;
+
+						// Đặt lại query
+						wp_reset_query();
+						?>
+					</div>
 				</div>
-
-				<div class="col-md-6">
-					<?php
-					// Query để lấy danh sách bài viết
-					$query = new WP_Query();
-					$query->query('posts_per_page=3&offset=3');
-
-					// Số thứ tự bài viết
-					$count = 4;
-
-					while ($query->have_posts()) : $query->the_post(); ?>
-						<div class="post-11">
-							<span class="number-top-view"><?php echo $count; ?></span>
-							<h3 class="title-news"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-						</div>
-					<?php
-						// Tăng số thứ tự bài viết lên 1
-						$count++;
-					endwhile;
-
-					// Đặt lại query
-					wp_reset_query();
-					?>
-				</div>
-			</div>
-		</article>
+			</article>
+		</div>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-4">
 		<?php
 		if ( have_posts() ) {
 			// Load posts loop.
@@ -200,8 +202,10 @@ get_header(); ?>
 
 		} ?>
 	</div>
-	<div class="col-md-2">
-		<?php dynamic_sidebar( 'comment-12' ); ?>
+	<div class="col-md-4">
+		<div class="bg-white">
+			<?php dynamic_sidebar( 'comment-12' ); ?>
+		</div>
 	</div>
 </div>
 <?php get_footer(); ?>
