@@ -361,10 +361,11 @@ function twenty_twenty_one_widgets_init() {
 		)
 	);
 
+	// Comment module 8
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Footer2', 'twentytwentyone' ),
-			'id'            => 'sidebar-2',
+			'name'          => esc_html__( 'Comment-12', 'twentytwentyone' ),
+			'id'            => 'comment-12',
 			'description'   => esc_html__( 'Add widgets here to appear in your footer.', 'twentytwentyone' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -662,3 +663,40 @@ if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 		return __( ', ', 'twentytwentyone' );
 	}
 endif;
+
+function get_comment_12() {
+	$comments = get_comments(
+		/** This filter is documented in wp-includes/widgets/class-wp-widget-recent-comments.php */
+		apply_filters(
+			'widget_comments_args',
+			array(
+				// 'number'      => $attributes['commentsToShow'],
+				'status'      => 'approve',
+				'post_status' => 'publish',
+			),
+			array()
+		)
+	);
+
+	echo '
+	<div class="wpb_wrapper">
+		<h4>Comment</h4>
+		<hr>
+		<ul class="list_comment">
+	';
+
+	$list_items_markup = '';
+	if ( ! empty( $comments ) ) {
+
+		foreach ( $comments as $comment ) {
+			$list_items_markup .= '<li><a href="'. esc_url( get_comment_link( $comment ) ) .'">' . wpautop( get_comment_excerpt( $comment ) ) . '</a></li>';
+		}
+		echo $list_items_markup;
+	}
+
+	echo '
+		</ul>
+	</div>
+	';
+}
+add_shortcode( 'comment_12', 'get_comment_12' );
