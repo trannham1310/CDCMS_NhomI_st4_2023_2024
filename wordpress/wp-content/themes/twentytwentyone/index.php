@@ -76,12 +76,11 @@ get_header(); ?>
 		float: right;
 	}
 </style>
-<div class="container">
-	<div class="row me-auto">
-		<div class="col-md-4">
-			<!-- module 11 -->
-		</div>
-		<div class="col-md-4">
+<div class="row me-auto">
+	<div class="col-md-4">
+		<!-- module 11 -->
+	</div>
+	<div class="col-md-6">
 		<?php
 		if ( have_posts() ) {
 			// Load posts loop.
@@ -100,10 +99,9 @@ get_header(); ?>
 			get_template_part( 'template-parts/content/content-none' );
 
 		} ?>
-		</div>
-		<div class="col-md-4">
-			<?php dynamic_sidebar( 'comment-12' ); ?>
-		</div>
+	</div>
+	<div class="col-md-2">
+		<?php dynamic_sidebar( 'comment-12' ); ?>
 	</div>
 </div>
 <?php get_footer(); ?>
