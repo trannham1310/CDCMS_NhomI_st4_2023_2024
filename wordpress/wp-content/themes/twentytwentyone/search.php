@@ -11,9 +11,7 @@
  */
 
 get_header();
-?>
 
-<?php
 if (have_posts()) {
 
 ?>
@@ -53,28 +51,33 @@ if (have_posts()) {
 				<h2>Trang mới nhất</h2>
 				<?php
 				$args = array(
-					'post_type' => 'post',
+					'post_type' => 'page',
 					'posts_per_page' => 3,
 					'order' => 'DESC',
 					'orderby' => 'date',
 				);
 
-				foreach (get_posts($args) as $post) {
-					$title = get_the_title($post);
-					$content = wp_trim_words(get_the_content($post), 30);
-					$image = get_the_post_thumbnail($post->ID);
-					$page_link = get_permalink($post->ID);
+				$query = new WP_Query($args);
 
-					// Hiển thị thông tin trang
-					echo '<a href="' . $page_link . '">';
-					echo '<h4>' . $title . '</h4>';
-					echo '<hr>';
-					echo '<img src="' . $image . '" alt="' . $title . '">';
-					echo '<p>' . $content . '</p>';
-					echo '</a>';
+				if ($query->have_posts()) {
+					while ($query->have_posts()) {
+						$query->the_post();
+
+						$title = get_the_title();
+						$content = wp_trim_words(get_the_content(), 30); // Giới hạn nội dung 30 từ
+						$thumbnail = get_the_post_thumbnail(get_the_ID()); // Lấy ảnh đại diện nhỏ
+						$page_link = get_permalink(); // Lấy đường dẫn đến trang
+
+						// Hiển thị thông tin trang
+						echo '<a href="' . $page_link . '">';
+						echo '<h4>' . $title . '</h4>';
+						echo '<hr>';
+						echo $thumbnail; // Hiển thị ảnh đại diện
+						echo '<p>' . $content . '</p>';
+						echo '</a>';
+					}
+					wp_reset_postdata();
 				}
-
-				wp_reset_postdata();
 				?>
 			</div>
 		</div>
