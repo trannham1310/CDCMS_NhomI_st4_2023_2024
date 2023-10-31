@@ -363,7 +363,17 @@ function twenty_twenty_one_widgets_init()
 			'after_title'   => '</h2>',
 		)
 	);
-
+    register_sidebar(
+		array(
+			'name'          => esc_html__('Comment', 'twentytwentyone'),
+			'id'            => 'comment',
+			'description'   => esc_html__('Add widgets here to appear in your footer.', 'twentytwentyone'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 	// Comment module 8
 	register_sidebar(
 		array(
