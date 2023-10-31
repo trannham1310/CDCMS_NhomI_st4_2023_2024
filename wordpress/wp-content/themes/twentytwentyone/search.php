@@ -103,12 +103,20 @@ if (have_posts()) {
 
 														// If no content, include the "No posts found" template.
 														?> </div>
-	</div> <?php		} else { ?>
+	</div>
+
+	<div col-md-3>
+
+	</div>
+
+
+<?php
+} else { ?>
 	<div class="search-module">
 		<?php get_template_part('template-parts/content/content-none'); ?>
 	</div>
 <?php
-				} ?>
+} ?>
 <div class="panel-body default-max-width">
 	<ul class="list-group">
 		<?php
