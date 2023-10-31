@@ -92,7 +92,7 @@ if (have_posts()) {
 }
 
 .name {
-  background-color: #f5f5f5;
+  background-color: #f5f5f5 !important;
   border: 1px solid #ddd;
   padding: 7px 10px;
   position: relative;
@@ -113,43 +113,7 @@ if (have_posts()) {
   left: -6px;
 }
 </style>
-<style>
-.class-name {
-  display: flex;
-}
 
-.class-name a {
-  margin-right: 20px;
-}
-
-.cm p {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-left: 80px;
-}
-
-.name {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  padding: 7px 10px;
-  position: relative;
-  margin-bottom: -1px;
-}
-
-.name:before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  border-width: 1px 0 0 1px;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  position: absolute;
-  top: 10px;
-  left: -6px;
-}
-</style>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <div class="row">
@@ -212,13 +176,10 @@ if (have_posts()) {
 
 														?> </div>
 
-  <div col-md-3>
-
+  <div col-md-3 cm>
+  
   </div>
 </div>
-
-
-
 
 <?php
 } else { ?>
