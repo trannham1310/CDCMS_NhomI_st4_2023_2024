@@ -11,7 +11,14 @@
  */
 
 get_header();
+?>
+<section>
+	<?php
 
+	get_search_form();
+	?>
+</section>
+<?php
 if (have_posts()) {
 
 ?>
@@ -45,29 +52,70 @@ if (have_posts()) {
 	</div><!-- .search-result-count -->
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<?php
-	// Start the Loop.
-	while (have_posts()) {
-		the_post();
+	<div class="row">
+		<div class="col-md-3">
+			<div class="module-pages">
+				<h2>Trang mới nhất</h2>
+				<?php
+				$args = array(
+					'post_type' => 'page',
+					'posts_per_page' => 3,
+					'order' => 'DESC',
+					'orderby' => 'date',
+				);
 
-		/*
+				$query = new WP_Query($args);
+
+				if ($query->have_posts()) {
+					while ($query->have_posts()) {
+						$query->the_post();
+
+						$title = get_the_title();
+						$content = wp_trim_words(get_the_content(), 30); // Giới hạn nội dung 30 từ
+						$thumbnail = get_the_post_thumbnail(get_the_ID()); // Lấy ảnh đại diện nhỏ
+						$page_link = get_permalink(); // Lấy đường dẫn đến trang
+
+						// Hiển thị thông tin trang
+						echo '<a href="' . $page_link . '">';
+						echo '<h4>' . $title . '</h4>';
+						echo '<hr>';
+						echo $thumbnail; // Hiển thị ảnh đại diện
+						echo '<p>' . $content . '</p>';
+						echo '</a>';
+					}
+					wp_reset_postdata();
+				}
+				?>
+			</div>
+		</div>
+
+		<?php
+		?>
+		<div class="col-md-6"> <?php
+														// Start the Loop.
+														while (have_posts()) {
+															the_post();
+
+															/*
 		 * Include the Post-Format-specific template for the content.
 		 * If you want to override this in a child theme, then include a file
 		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 		 */
-		get_template_part('template-parts/content/content-excerpt', get_post_format());
-	} // End the loop.
 
-	// Previous/next page navigation.
-	twenty_twenty_one_the_posts_navigation();
+															get_template_part('template-parts/content/content-excerpt', get_post_format());
+														} // End the loop.
 
-	// If no content, include the "No posts found" template.
-} else { ?>
+														// Previous/next page navigation.
+														twenty_twenty_one_the_posts_navigation();
+
+														// If no content, include the "No posts found" template.
+														?> </div>
+	</div> <?php		} else { ?>
 	<div class="search-module">
 		<?php get_template_part('template-parts/content/content-none'); ?>
 	</div>
 <?php
-} ?>
+				} ?>
 <div class="panel-body default-max-width">
 	<ul class="list-group">
 		<?php
@@ -227,5 +275,11 @@ get_footer();
 		justify-content: center;
 		align-items: center;
 		margin: 0;
+	}
+</style>
+<!-- style pages -->
+<style>
+	.module-pages {
+		margin: 50px;
 	}
 </style>
