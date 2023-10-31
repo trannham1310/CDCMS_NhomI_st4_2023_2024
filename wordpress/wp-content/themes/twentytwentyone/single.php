@@ -100,150 +100,179 @@ endwhile; // End of the loop.
 get_footer();
 ?>
 <style>
-/*Sửa phân trang*/
-.post-navigation .nav-links {
-  flex-direction: column;
-  align-items: center;
-}
+  /*Sửa phân trang*/
+  .post-navigation .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.nav-next .headlinestitle {
-  text-align: left;
-}
+  .nav-next .headlinestitle {
+    text-align: left;
+  }
 
-.post-navigation .nav-links .headlinestitle .post-title {
-  font-weight: 300;
-}
+  .post-navigation .nav-links .headlinestitle .post-title {
+    font-weight: 300;
+  }
 
-/**Sửa phân trang**/
-
-
+  /**Sửa phân trang**/
 
 
 
-@media (max-width: 767px) {
-  .timeline>li {
+
+
+  @media (max-width: 767px) {
+    .timeline>li {
+      margin-bottom: 15px;
+    }
+
+    .ulmain.timeline:before {
+      left: 20px;
+    }
+
+    .ulmain.timeline>li>.timeline-panel {
+      width: calc(100% - 90px);
+      width: -moz-calc(100% - 90px);
+      width: -webkit-calc(100% - 90px);
+    }
+
+    .ulmain.timeline>li>.timeline-badge {
+      left: 11px;
+      margin-left: 0;
+      top: 16px;
+    }
+
+
+
+
+  }
+
+  /*-----------------------------------Tin tá»©c----------------------------------------*/
+
+
+  .row>.col-md-6>img {
+    max-width: 100%;
+  }
+
+  .headlines {
+    background: #56bdbf;
+    overflow: hidden;
+    padding: 20px 30px;
+  }
+
+  .headlines .ulmain {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .headlines .ulmain>li {
+    overflow: hidden;
+    display: table;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  .headlines .ulmain>li>.headlinestitle {
+    display: table-cell;
+    vertical-align: middle;
+    width: 85%;
+  }
+
+  .headlinesdate .headlinesdm,
+  .news>.headlines .headlinesdate,
+  .headlinesdate {
+    float: left;
+    font-family: "Prata", serif;
+  }
+
+  .headlines .headlinesdate {
+    font-size: 0.8em;
+    width: 15%;
+    min-width: 55px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .headlinesdate .headlinesday,
+  .news>.headlines .headlinesmonth {
+    line-height: 1.7em;
+  }
+
+  .headlinesdate .headlinesday {
+    border-bottom: 1px solid #fff;
+  }
+
+  .headlinesdate .headlinesyear {
+    line-height: 3.5em;
+    float: left;
+    margin-left: 3px;
+  }
+
+  .news>.newsall {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    background: #62c6c8;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+
+
+
+  .list_news {
+    margin-top: 0px;
+  }
+
+  .list_new_view {
     margin-bottom: 15px;
   }
 
-  .ulmain.timeline:before {
-    left: 20px;
+  .prof_articles .top_news_block {
+    margin: 0 0 15px;
   }
 
-  .ulmain.timeline>li>.timeline-panel {
-    width: calc(100% - 90px);
-    width: -moz-calc(100% - 90px);
-    width: -webkit-calc(100% - 90px);
+  /*--------------------------------------------------Students-----------------------------------------*/
+  .list_news .headlines {
+    background: #fff;
+    color: black;
   }
 
-  .ulmain.timeline>li>.timeline-badge {
-    left: 11px;
-    margin-left: 0;
-    top: 16px;
+  .list_news .headlines a {
+    color: #fff;
   }
 
+  .list_news .headlines .headlinesday,
+  .detail .headlinesdate .headlinesday {
+    border-bottom: 1px solid black;
+  }
 
+  /*-----------------------------------List item panel -----------------------------------*/
+  .list-group-item {
+    border: none;
+    border-bottom: 1px #d9d9d9 solid;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 15px;
+  }
 
+  .list-group-item:last-child {
+    border: none;
+  }
 
-}
+  .list-group {
+    list-style: disc;
+    margin-bottom: 0;
+  }
 
-/*-----------------------------------Tin tá»©c----------------------------------------*/
-
-
-.row>.col-md-6>img {
-  max-width: 100%;
-}
-
-.headlines {
-  background: #56bdbf;
-  overflow: hidden;
-  padding: 20px 30px;
-}
-
-.headlines .ulmain {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.headlines .ulmain>li {
-  overflow: hidden;
-  display: table;
-  margin-bottom: 5px;
-  width: 100%;
-}
-
-.headlines .ulmain>li>.headlinestitle {
-  display: table-cell;
-  vertical-align: middle;
-  width: 85%;
-}
-
-.headlinesdate .headlinesdm,
-.news>.headlines .headlinesdate,
-.headlinesdate {
-  float: left;
-  font-family: "Prata", serif;
-}
-
-.headlines .headlinesdate {
-  font-size: 0.8em;
-  width: 15%;
-  min-width: 55px;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.headlinesdate .headlinesday,
-.news>.headlines .headlinesmonth {
-  line-height: 1.7em;
-}
-
-.headlinesdate .headlinesday {
-  border-bottom: 1px solid #fff;
-}
-
-.headlinesdate .headlinesyear {
-  line-height: 3.5em;
-  float: left;
-  margin-left: 3px;
-}
-
-.news>.newsall {
-  display: block;
-  padding: 10px;
-  text-align: center;
-  background: #62c6c8;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-
-
-
-.list_news {
-  margin-top: 0px;
-}
-
-.list_new_view {
-  margin-bottom: 15px;
-}
-
-.prof_articles .top_news_block {
-  margin: 0 0 15px;
-}
-
-/*--------------------------------------------------Students-----------------------------------------*/
-.list_news .headlines {
-  background: #fff;
-  color: black;
-}
-
-.list_news .headlines a {
-  color: #fff;
-}
-
-.list_news .headlines .headlinesday,
-.detail .headlinesdate .headlinesday {
-  border-bottom: 1px solid black;
-}
+  .list-group-item:before {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f5ce31;
+    content: "\2022";
+    font-size: 2em;
+    padding-right: 0.5em;
+    position: relative;
+    top: 0.15em;
+  }
 </style>
