@@ -57,25 +57,21 @@ if (have_posts()) {
 					'orderby' => 'date',
 				);
 
-				$query = new WP_Query($args);
+				foreach (get_posts($args) as $post) {
+					$title = get_the_title($post);
+					$content = wp_trim_words(get_the_content($post), 20);
+					$thumbnail = get_the_post_thumbnail($post->ID);
+					$page_link = get_permalink($post->ID);
 
-				if ($query->have_posts()) {
-					while ($query->have_posts()) {
-						$query->the_post();
+					// Hiển thị thông tin trang
+					echo '<a class="link-text" href="' . $page_link . '">';
+					echo '<h4>' . $title . '</h4>';
+					echo '</a>';
+					echo '<hr>';
+					echo '<div class="thumb">' . $thumbnail . '</div>';
+					echo '<div class="content-page"><p>' . $content . '</p></div>';
 
-						$title = get_the_title();
-						$content = wp_trim_words(get_the_content(), 30); // Giới hạn nội dung 30 từ
-						$thumbnail = get_the_post_thumbnail(get_the_ID()); // Lấy ảnh đại diện nhỏ
-						$page_link = get_permalink(); // Lấy đường dẫn đến trang
 
-						// Hiển thị thông tin trang
-						echo '<a href="' . $page_link . '">';
-						echo '<h4>' . $title . '</h4>';
-						echo '<hr>';
-						echo $thumbnail; // Hiển thị ảnh đại diện
-						echo '<p>' . $content . '</p>';
-						echo '</a>';
-					}
 					wp_reset_postdata();
 				}
 				?>
@@ -282,5 +278,20 @@ get_footer();
 <style>
 	.module-pages {
 		margin: 50px;
+		color: inherit;
+		font-family: inherit;
+	}
+
+	.thumb {
+		width: 220px;
+		height: 110px;
+	}
+
+	.content-page {
+		margin-top: 50px;
+	}
+
+	.link-text {
+		color: inherit;
 	}
 </style>
