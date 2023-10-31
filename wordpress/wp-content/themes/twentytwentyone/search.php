@@ -15,20 +15,20 @@ get_header();
 if (have_posts()) {
 
 ?>
-	<header class="page-header alignwide">
-		<h1 class="page-title ">
-			<?php
+<header class="page-header alignwide">
+    <h1 class="page-title ">
+        <?php
 			printf(
 				/* translators: %s: Search term. */
 				esc_html__('Search for "%s"', 'twentytwentyone'),
 				'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
 			);
 			?>
-		</h1>
-	</header><!-- .page-header -->
-	<!-- .page-content -->
-	<div class="search-result-count default-max-width">
-		<?php
+    </h1>
+</header><!-- .page-header -->
+<!-- .page-content -->
+<div class="search-result-count default-max-width">
+    <?php
 		printf(
 			esc_html(
 				/* translators: %d: The number of search results. */
@@ -112,14 +112,14 @@ if (have_posts()) {
 
 <?php
 } else { ?>
-	<div class="search-module">
-		<?php get_template_part('template-parts/content/content-none'); ?>
-	</div>
+<div class="search-module">
+    <?php get_template_part('template-parts/content/content-none'); ?>
+</div>
 <?php
 } ?>
 <div class="panel-body default-max-width">
-	<ul class="list-group">
-		<?php
+    <ul class="list-group">
+        <?php
 		$args = array(
 			'post_type' => 'post',
 			'orderby' => 'date',
@@ -149,7 +149,7 @@ if (have_posts()) {
 
 </div>';
 		?>
-	</ul>
+    </ul>
 
 </div>
 
@@ -160,127 +160,117 @@ if (have_posts()) {
 get_footer();
 ?>
 <style>
-	ul.timeline {
-		list-style-type: none;
-		position: relative;
-	}
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
 
-	ul.timeline:before {
-		content: ' ';
-		background: #d4d9df;
-		display: inline-block;
-		position: absolute;
-		left: 29px;
-		width: 2px;
-		height: 100%;
-		z-index: 400;
-	}
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
 
-	ul.timeline>li {
-		margin: 20px 0;
-		padding-left: 8px;
-	}
+ul.timeline>li {
+    margin: 20px 0;
+    padding-left: 8px;
+}
 
-	ul.timeline>li:before {
-		content: ' ';
-		background: white;
-		display: inline-block;
-		position: absolute;
-		border-radius: 50%;
-		border: 3px solid #22c0e8;
-		left: 20px;
-		width: 20px;
-		height: 20px;
-		z-index: 400;
-	}
+ul.timeline>li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #22c0e8;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
 </style>
 <style>
-	:root {
-		--color-button-search: #28a745;
-		--color-bg-search: #f5efe0;
-	}
+.search-module .no-results.not-found {
+    background-color: white;
+}
 
-	.search-module .no-results.not-found {
-		background-color: white;
-	}
+.search-module .container-title {
+    max-width: 475px;
+}
 
-	.search-module .container-title {
-		max-width: 475px;
-	}
+.search-module .bg-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    padding-bottom: 10px;
+    background-color: #f5efe0;
+    margin: 0;
+}
 
-	.search-module .bg-search {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: 150px;
-		padding-bottom: 10px;
-		background-color: var(--color-bg-search);
-		margin: 0;
-	}
+/* không chô hiển thị label */
+.search-module label {
+    display: none;
+}
 
-	.search-module label {
-		display: none;
-	}
+.search-module p.search-title {
+    font-size: 30px;
+    font-weight: 650;
+}
 
-	.search-module p.search-title {
-		font-size: 30px;
-		font-weight: 650;
-	}
+.search-module .page-header.alignwide {
+    border: none;
+    margin-bottom: 0;
+    padding: 0;
+}
 
-	.search-module .page-header.alignwide {
-		border: none;
-		margin-bottom: 0;
-		padding: 0;
-	}
+.search-module form.search-form {
+    position: relative;
+}
 
-	.search-module form.search-form {
-		position: relative;
-	}
+.search-module .search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    font-weight: bolder;
+}
 
-	.search-module .search-icon {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		left: 20px;
-		font-weight: bolder;
-	}
+.search-module .search-form .search-field {
+    width: 600px;
+    height: 70px;
+    border: none;
+    margin: 0;
+    margin: auto;
+    padding-left: 50px;
+    padding-right: 120px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+}
 
-	.search-module .search-form .search-field {
-		width: 600px;
-		height: 70px;
-		border: none;
-		margin: 0;
-		margin: auto;
-		padding-left: 50px;
-		padding-right: 120px;
-		border: 1px solid rgba(0, 0, 0, 0.125);
-		border-radius: 4px;
-	}
+.search-module input.search-submit {
+    background: #28a745 !important;
+    border-radius: 4px;
+    position: absolute;
+    padding: 0 10px;
+    height: 40px;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 0;
+}
 
-	.search-module input.search-submit {
-		background: var(--color-button-search) !important;
-		border-radius: 4px;
-		position: absolute;
-		padding: 0 10px;
-		height: 40px;
-		right: 15px;
-		top: 50%;
-		transform: translateY(-50%);
-		margin-top: 0;
-	}
-
-	.search-module .page-content {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin: 0;
-	}
-</style>
-<!-- style pages -->
-<style>
-	.module-pages {
-		margin: 50px;
-	}
+.search-module .page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
 </style>
