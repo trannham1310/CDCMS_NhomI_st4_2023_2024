@@ -119,20 +119,20 @@ section .section-title {
   <div class="container" style="color: white;">
     <div class="row text-center text-xs-center text-sm-left text-md-left">
       <div class="col-xs-12 col-sm-4 col-md-4">
-
+            <h5>Comment</h5>
         <ul class="list-unstyled quick-links">
           <li><a href="https://www.fiverr.com/share/qb8D02"><?php dynamic_sidebar('footer-1'); ?></a></li>
         </ul>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4">
-
+      <h5>Categories</h5>
         <ul class="list-unstyled quick-links" style="margin-top: 25px;">
           <li><a href="https://www.fiverr.com/share/qb8D02"><?php dynamic_sidebar('footer-2'); ?></a></li>
         </ul>
 
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4">
-
+      <h5>Last post</h5>
         <ul class="list-unstyled quick-links">
           <li><a href="https://www.fiverr.com/share/qb8D02"><?php dynamic_sidebar('footer-3'); ?></a></li>
         </ul>
