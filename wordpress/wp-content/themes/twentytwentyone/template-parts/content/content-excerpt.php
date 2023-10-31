@@ -33,7 +33,7 @@
 </article><!-- #post-${ID} -->
 
 <style>
-  /* .list_new_view {
+/* .list_new_view {
     align-items: center;
     background-color: #fdfdfd;
     border: 1px solid black;
@@ -41,7 +41,7 @@
     height: 300px;
   } */
 
-  /* .topnewsdate {
+/* .topnewsdate {
     font-size: 65px;
     color: #000000;
   }
@@ -66,54 +66,58 @@
 </style>
 
 <style>
-  .content-2, .content-2 a {
-    font-size: 0.9em;
-    background: #fff;
-    margin-bottom: 10px;
-    padding: 15px 0;
-  }
-  .topnewstime > .topnewsdate {
-    font-family: 'Prata', serif;
-    font-size: 3.1em;
-    line-height: 1em;
-  }
-  .content-2 .topnewstime {
-    margin-top: 10px;
-    text-align: center;
-    padding-left: 0;
-  }
+.content-2,
+.content-2 a {
+  font-size: 0.9em;
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 15px 0;
+}
 
-  .topnewstime > .topnewsmonth {
-    text-transform: uppercase;
-    font-size: 0.9em;
-  }
+.topnewstime>.topnewsdate {
+  font-family: 'Prata', serif;
+  font-size: 3.1em;
+  line-height: 1em;
+}
 
-  .content-2 .shortdesc h2 {
-    text-transform: uppercase;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
+.content-2 .topnewstime {
+  margin-top: 10px;
+  text-align: center;
+  padding-left: 0;
+}
 
-  .content-2 .shortdesc .entry-header {
-    margin-top: 12px;
-  }
-  .content-2 .shortdesc {
-    border-left: 1px solid #000;
-  }
-  
-  .content-2 .shortdesc h2 a {
-    color: #428bca;
-    text-decoration: none;
-  }
+.topnewstime>.topnewsmonth {
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
 
-  .content-2 .shortdesc h2 a:hover {
-    color: #2a6496;
-    text-decoration: underline;
-  }
+.content-2 .shortdesc h2 {
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
 
-  .content-2 .entry-content {
-    margin-top: 0px;
-  }
+.content-2 .shortdesc .entry-header {
+  margin-top: 12px;
+}
+
+.content-2 .shortdesc {
+  border-left: 1px solid #000;
+}
+
+.content-2 .shortdesc h2 a {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.content-2 .shortdesc h2 a:hover {
+  color: #2a6496;
+  text-decoration: underline;
+}
+
+.content-2 .entry-content {
+  margin-top: 0px;
+}
 </style>
