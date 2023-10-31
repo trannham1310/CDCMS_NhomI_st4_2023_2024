@@ -28,6 +28,25 @@ while (have_posts()) :
     );
   }
 
+  $twentytwentyone_next = is_rtl() ? twenty_twenty_one_get_icon_svg('ui', 'arrow_left') : twenty_twenty_one_get_icon_svg('ui', 'arrow_right');
+  $twentytwentyone_prev = is_rtl() ? twenty_twenty_one_get_icon_svg('ui', 'arrow_right') : twenty_twenty_one_get_icon_svg('ui', 'arrow_left');
+
+  $twentytwentyone_next_label     = esc_html__('Next post', 'twentytwentyone');
+  $twentytwentyone_previous_label = esc_html__('Previous post', 'twentytwentyone');
+  $next_date_post = get_next_post()->post_date;
+
+  $prev_date_post = get_previous_post()->post_date;
+
+  if (is_attachment()) {
+    // Parent post navigation.
+    the_post_navigation(
+      array(
+        /* translators: %s: Parent post link. */
+        'prev_text' => sprintf(__('<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'twentytwentyone'), '%title'),
+      )
+    );
+  }
+
   the_post_navigation(
     array(
       'next_text' => '<p class="meta-nav"></p> <div class="list_news">
@@ -36,10 +55,10 @@ while (have_posts()) :
           <li>
             <div class="headlinesdate">
               <div class="headlinesdm">
-                <div class="headlinesday">' . get_the_date('d') . '</div>
-                <div class="headlinesmonth">' . get_the_date('m') . '</div>
+                <div class="headlinesday">' .  date("j", strtotime($next_date_post)) . '</div>
+                <div class="headlinesmonth">' . date("m", strtotime($next_date_post))  . '</div>
               </div>
-              <div class="headlinesyear">' . get_the_date('y') . '</div>
+              <div class="headlinesyear">' . date("y", strtotime($next_date_post)) . '</div>
             </div>
             <div class="headlinestitle">
 						<p class="post-title">%title</p>
@@ -55,10 +74,10 @@ while (have_posts()) :
         <li>
         <div class="headlinesdate">
           <div class="headlinesdm">
-            <div class="headlinesday">' . get_the_date('d') . '</div>
-            <div class="headlinesmonth">' . get_the_date('m') . '</div>
+            <div class="headlinesday">' . date("j", strtotime($prev_date_post)) . '</div>
+            <div class="headlinesmonth">' . date("m", strtotime($prev_date_post)) . '</div>
           </div>
-          <div class="headlinesyear">' . get_the_date('y') . '</div>
+          <div class="headlinesyear">' . date("y", strtotime($prev_date_post)) . '</div>
         </div>
         <div class="headlinestitle">
         <p class="post-title">%title</p>
@@ -90,8 +109,8 @@ get_footer();
   .nav-next .headlinestitle {
     text-align: left;
   }
-  
-  .post-navigation .nav-links .headlinestitle .post-title{
+
+  .post-navigation .nav-links .headlinestitle .post-title {
     font-weight: 300;
   }
 

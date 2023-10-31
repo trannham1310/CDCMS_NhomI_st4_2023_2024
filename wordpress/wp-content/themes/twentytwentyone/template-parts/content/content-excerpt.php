@@ -12,21 +12,22 @@
 
 ?>
 
-<article id="post-<?php the_ID();?>" <?php post_class();?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <div class="row content-2">
     <div class="col-md-3 col-xs-3 topnewstime">
-      <span class="topnewsdate">13</span><br>
-      <span class="topnewsmonth">Tháng 08</span><br>
+      <span class="topnewsdate"><?php echo get_the_date('d') ?></span><br>
+      <span class="topnewsmonth"><?php echo "Tháng " . get_the_date('m') ?></span><br>
     </div>
     <div class="col-md-9 col-xs-9 shortdesc">
-      <?php get_template_part( 'template-parts/header/excerpt-header', get_post_format() ); ?>
+      <?php get_template_part('template-parts/header/excerpt-header', get_post_format()); ?>
 
       <div class="entry-content">
-        <?php get_template_part( 'template-parts/excerpt/excerpt', get_post_format() ); ?>
+        <?php get_template_part('template-parts/excerpt/excerpt', get_post_format()); ?>
       </div><!-- .entry-content -->
 
       <footer class="entry-footer default-max-width">
-        <?php //twenty_twenty_one_entry_meta_footer(); ?>
+        <?php //twenty_twenty_one_entry_meta_footer(); 
+        ?>
       </footer><!-- .entry-footer -->
     </div>
   </div>
@@ -66,24 +67,27 @@
 </style>
 
 <style>
-  .content-2, .content-2 a {
+  .content-2,
+  .content-2 a {
     font-size: 0.9em;
     background: #fff;
     margin-bottom: 10px;
     padding: 15px 0;
   }
-  .topnewstime > .topnewsdate {
+
+  .topnewstime>.topnewsdate {
     font-family: 'Prata', serif;
     font-size: 3.1em;
     line-height: 1em;
   }
+
   .content-2 .topnewstime {
     margin-top: 10px;
     text-align: center;
     padding-left: 0;
   }
 
-  .topnewstime > .topnewsmonth {
+  .topnewstime>.topnewsmonth {
     text-transform: uppercase;
     font-size: 0.9em;
   }
@@ -99,10 +103,11 @@
   .content-2 .shortdesc .entry-header {
     margin-top: 12px;
   }
+
   .content-2 .shortdesc {
     border-left: 1px solid #000;
   }
-  
+
   .content-2 .shortdesc h2 a {
     color: #428bca;
     text-decoration: none;
