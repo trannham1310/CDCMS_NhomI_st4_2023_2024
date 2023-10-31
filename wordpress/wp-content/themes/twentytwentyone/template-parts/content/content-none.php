@@ -1,66 +1,73 @@
-<?php
-/**
- * Template part for displaying a message that posts cannot be found
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
- */
+<!DOCTYPE html>
+<html lang="en">
 
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-<section class="no-results not-found">
-	<header class="page-header alignwide">
-		<?php if ( is_search() ) : ?>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <style>
 
-			<h1 class="page-title">
-				<?php
-				printf(
-					/* translators: %s: Search term. */
-					esc_html__( 'Results for "%s"', 'twentytwentyone' ),
-					'<span class="page-description search-term">' . esc_html( get_search_query() ) . '</span>'
-				);
-				?>
-			</h1>
+    </style>
+</head>
 
-		<?php else : ?>
+<body>
 
-			<h1 class="page-title"><?php esc_html_e( 'Nothing here', 'twentytwentyone' ); ?></h1>
+    <section class="no-results not-found">
 
-		<?php endif; ?>
-	</header><!-- .page-header -->
+        <div class="page-content ">
 
-	<div class="page-content default-max-width">
 
-		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+            <?php if (is_home() && current_user_can('publish_posts')) : ?>
+            <?php
 
-			<?php
-			printf(
-				'<p>' . wp_kses(
-					/* translators: %s: Link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%s">Get started here</a>.', 'twentytwentyone' ),
-					array(
-						'a' => array(
-							'href' => array(),
-						),
-					)
-				) . '</p>',
-				esc_url( admin_url( 'post-new.php' ) )
-			);
-			?>
+                printf(
 
-		<?php elseif ( is_search() ) : ?>
+                    '<p>' . wp_kses(
+                        /* translators: %s: Link to WP admin new post page. */
+                        __('Ready to publish your first post? <a href="%s">Get started here</a>.', 'twentytwentyone'),
+                        array(
+                            'a' => array(
+                                'href' => array(),
+                            ),
+                        )
+                    ) . '</p>',
+                    esc_url(admin_url('post-new.php'))
+                );
+                ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'twentytwentyone' ); ?></p>
-			<?php get_search_form(); ?>
+            <?php elseif (is_search()) : ?>
+            <h5 class="page-title1 " style="text-align: center; color:red;">
+                <?php
+                    printf(
+                        /* translators: %s: Search term. */
+                        esc_html__('Search:"%s"', 'twentytwentyone'),
+                        '<span class="page-description search-term "style="color:black;">' . esc_html(get_search_query()) . '</span>'
+                    );
+                    ?>
+            </h5>
 
-		<?php else : ?>
+            <p class="container-title text-center mb-5">
+                <?php esc_html_e('We could not find any results for your search. You can give a another try through the search from below', 'twentytwentyone'); ?>
+            </p>
+            <div class="bg-search">
+                <?php get_search_form(); ?>
+            </div>
+            <?php else : ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwentyone' ); ?></p>
-			<?php get_search_form(); ?>
+            <p class="text-center">
+                <?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwentyone'); ?>
+            </p>
+            <?php get_search_form(); ?>
 
-		<?php endif; ?>
-	</div><!-- .page-content -->
-</section><!-- .no-results -->
+            <?php endif; ?>
+
+
+        </div><!-- .page-content -->
+
+    </section><!-- .no-results -->
+</body>
+
+</html>
