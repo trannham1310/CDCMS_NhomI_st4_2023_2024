@@ -99,13 +99,10 @@ section .section-title {
     padding-bottom: 0px;
     margin-bottom: 10px;
 }
-.container a{
-	font-size: 1rem !important;
-}
 }
 </style>
 	<section id="footer">
-		<div class="container">
+		<div class="container" style="color: white;">
 			<div class="row text-center text-xs-center text-sm-left text-md-left">
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Comment</h5>
@@ -115,7 +112,7 @@ section .section-title {
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 				    <h5>Categories</h5>
-					<ul class="list-unstyled quick-links">
+					<ul class="list-unstyled quick-links" style="margin-top: 25px;">
 						<li><a href="https://www.fiverr.com/share/qb8D02"><?php dynamic_sidebar( 'footer-2' ); ?></a></li>
 					</ul>
 
