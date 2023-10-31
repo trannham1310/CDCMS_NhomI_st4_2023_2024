@@ -26,23 +26,89 @@ if (have_posts()) {
 			?>
 		</h1>
 	</header><!-- .page-header -->
-	<!-- .page-content -->
-	<div class="search-result-count default-max-width">
-		<?php
-		printf(
-			esc_html(
-				/* translators: %d: The number of search results. */
-				_n(
-					'We found %d result for your search.',
-					'We found %d results for your search.',
-					(int) $wp_query->found_posts,
-					'twentytwentyone'
-				)
-			),
-			(int) $wp_query->found_posts
-		);
-		?>
-	</div><!-- .search-result-count -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+
+			</div>
+			<div class="col-md-4">
+				<!-- .page-content -->
+				<div class="search-result-count default-max-width">
+					<?php
+					printf(
+						esc_html(
+							/* translators: %d: The number of search results. */
+							_n(
+								'We found %d result for your search.',
+								'We found %d results for your search.',
+								(int) $wp_query->found_posts,
+								'twentytwentyone'
+							)
+						),
+						(int) $wp_query->found_posts
+					);
+					?>
+				</div><!-- .search-result-count -->
+			</div>
+			<div class="col-md-4 cm">
+				<?php
+				// Lấy tất cả các comment của bài viết hiện tại
+				$comments = get_comments(array(
+					'post_id' => get_the_ID(),
+					'orderby' => 'comment_date',
+					'order' => 'asc',
+				));
+
+				// Duyệt qua mảng comment và hiển thị từng comment
+				foreach ($comments as $comment) {
+					// Hiển thị ảnh đại diện của người comment
+					$avatar = get_avatar($comment->comment_author_email, 60);
+					// Hiển thị thông tin comment
+					echo '<div class="class-name">';
+					echo '<a>' . $avatar . '</a>';
+					echo '<h5 class="name">' . $comment->comment_author . '</h5>';
+					echo '</div>';
+					echo '<p>' . $comment->comment_content . '</p>';
+				}
+
+				?>
+			</div>
+		</div>
+	</div>
+	<style>
+		.class-name {
+			display: flex;
+		}
+        .class-name a{
+			margin-right: 20px;
+		}
+		.cm p {
+			border: 1px solid #ddd;
+			padding: 10px;
+			margin-left: 80px;
+		}
+
+		.name {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 7px 10px;
+    position: relative;
+    margin-bottom: -1px;
+}
+.name:before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-width: 1px 0 0 1px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 10px;
+    left: -6px;
+}
+	</style>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 	<?php
