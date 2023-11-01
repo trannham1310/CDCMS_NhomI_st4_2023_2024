@@ -126,7 +126,7 @@
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">
 
-				<ul class="list-unstyled quick-links" style="margin-top: 25px;">
+				<ul class="list-unstyled quick-links">
 					<li><a href="https://www.fiverr.com/share/qb8D02"><?php dynamic_sidebar('footer-2'); ?></a></li>
 				</ul>
 
